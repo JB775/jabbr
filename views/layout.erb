@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title><%= @title %></title>
+
+</head>
+
+<body>
+
+	<%
+		nav = ["Home", "About Us", "Our Products", "Our Services", "Our Form", "Our Name"] 
+		pages = ["/", "about", "products", "services", "form", "name"] 
+	%>
+
+	<ul style="list-style-type: none; padding-left: 0">
+
+	<!-- start ruby -->	
+	<% nav.each_with_index do |page, index| %>
+		<li style="display:inline-block">
+			<a href="<%= pages[index] %>">
+				<%= page %>
+			</a>	
+		</li>
+	<% end %>
+	<!-- end ruby -->
+
+	</ul>
+
+	<!-- start ruby -->
+	<%= yield %>	
+	<!-- end ruby -->
+
+</body>
+</html>
