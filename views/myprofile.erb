@@ -1,0 +1,30 @@
+<h1>My Profile</h1>
+
+<% if @userToFollow  %>
+	<p>Now Following ID #: <%= @userToFollow %></p>
+	<% Relationship.create(followed_id: @userToFollow, follower_id: session[:session_user_id]) 
+	  %>
+<% end %>
+
+<hr>
+<h3>Followed By The Users Below:</h3>
+<hr>
+
+<% @followers.each do |follower| %>
+	
+	<p><%= follower.username %></p>
+<% end %>
+
+
+
+<hr>
+<h3>Following The Users Below:</h3>
+<hr>
+
+<% @following.each do |t| %>
+	
+	<p><%= t.username %></p>
+<% end %>
+
+<!-- add jQuery to swap out follow/unfollow button and add if/else statement so duplicates are not added to database -->
+

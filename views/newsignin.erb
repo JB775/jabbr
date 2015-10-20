@@ -1,0 +1,10 @@
+	<p>New Account Created!  Please Sign In To Continue</p>
+
+
+ 	<% User.create(username: (@params[:username]).chomp, password: @params[:password]) %> 
+
+
+
+	<p>Hello <%=  @params[:username].chomp %>!</p>
+	<!-- <p>Hello <%=  @params.inspect %>!</p> -->
+<!-- 	<p>Your Password is <%=  @params[:data] %>!</p> -->

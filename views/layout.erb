@@ -4,14 +4,15 @@
 <head>
 	<meta charset="utf-8">
 	<title><%= @title %></title>
+	<link href="/css/style.css" rel="stylesheet" />
 
 </head>
 
 <body>
 
 	<%
-		nav = ["Home", "About Us", "Our Products", "Our Services", "Our Form", "Our Name"] 
-		pages = ["/", "about", "products", "services", "form", "name"] 
+		nav = ["Home", "Sign Up"] 
+		pages = ["/", "signup"] 
 	%>
 
 	<ul style="list-style-type: none; padding-left: 0">
@@ -24,13 +25,45 @@
 			</a>	
 		</li>
 	<% end %>
-	<!-- end ruby -->
+
+		<% if !session[:session_user_id] %>
+			<li style="display:inline-block"><a href="/login_form">Sign In</a></li>
+		<% end %>
 
 	</ul>
 
-	<!-- start ruby -->
+
+
+	<% if session[:session_user_id] %>
+		<ul>
+			<li style="display:inline-block">New Jab</li>
+			<li style="display:inline-block"><a href="/myprofile">My Profile</a></li>
+			<li style="display:inline-block"><a href="/settings">Settings</a></li>
+			<li style="display:inline-block"><a href="/logout">Log Out</a></li>
+		</ul>
+	<% end %>
+
+
+
+
 	<%= yield %>	
-	<!-- end ruby -->
+
+	<hr>
+	<% if session[:session_user_id] %>
+		<p>Current User: <%= session[:session_username] %></p>
+		<p>Current User ID: <%= session[:session_user_id] %></p>
+	<% end %>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="/js/script.js"></script>
+
 
 </body>
 </html>
+
+
+
+
+
+
+

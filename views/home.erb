@@ -1,5 +1,31 @@
-	<p>We Are Home!</p>
+	<p>Homepage!</p>
 
-	<img src="/images/smile.jpg" />	
+	<!-- <img src="/images/smile.jpg" />	 -->
 
 	<% @title = "Welcome To Our Home Page" %>
+
+	<h3>Recommended To Follow:</h3>
+
+	<% 
+		# userArray = @allUsers.each
+			
+	%>
+
+	<% for i in (1..10) %>
+	
+		<p class="users_to_follow"><%= @allUsers.all[i].username %></p>
+		<!-- <a href="/newfollow" class="button" value="">Follow</a> -->
+
+		<form class="users_to_follow" action="/myprofile" method="get">
+			<button name="user_to_follow_id" type="submit" value="<%= @allUsers.all[i].id %>">Follow</button>
+		</form>
+
+		<%  #push id values into relationships join table
+			session[:session_user_id]
+		%>
+		<br>
+	<% end %>
+
+
+
+	

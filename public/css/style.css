@@ -1,0 +1,13 @@
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    margin-left: 6px;
+    text-decoration: none;
+    color: lightblue;
+    background-color: darkblue;
+}
+
+.users_to_follow {
+	display:inline-block
+}
